@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.AI;
+using Random = System.Random;
 
 public enum EnemyType {SLIME, TURTLESHELL, NONE}
 
@@ -27,17 +28,19 @@ public class Enemy : MonoBehaviour
 
     public EnemyData enemyData;
     
-    private Animator _animator;
-
-    private float _checkEnemyDPS = 0;
-    private float _checkEnemyWander = 0;
-    public float wanderRadius;
-    public float wanderTimer;
-
     private NavMeshAgent _agent;
     
-    [SerializeField]
+    private Animator _animator;
+
     private Player _targetPlayer = null;
+    
+    [SerializeField]
+    private float _checkEnemyDPS = 0;
+    [SerializeField]
+    private float _wanderRadius;
+    [SerializeField]
+    private float _wanderTimer;
+    private float _checkEnemyWander = 0;
 
     private void Awake()
     {
@@ -47,36 +50,15 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if(_targetPlayer == null)
+        if (ReferenceEquals(_targetPlayer, null))
+        {
+            SetAnimatiorBool("Battle", false);
+            
             _targetPlayer = FindPlayer();
-        
-        if (_targetPlayer != null)
-        {
-            Vector3 targetPlayerPos = _targetPlayer.transform.position;
-            float diff = Vector3.Distance(targetPlayerPos, transform.position);
-
-            if (diff > enemyData.range)
-            {
-                Vector3 normalizeVec = (_targetPlayer.transform.position - transform.position).normalized;
-                Vector3 targetVec = targetPlayerPos - (normalizeVec * enemyData.range);
-                
-                _agent.SetDestination(targetVec);
-            }
-            else
-            {
-                _checkEnemyDPS += Time.deltaTime;
-
-                if (_checkEnemyDPS >= enemyData.dps)
-                {
-                    _checkEnemyDPS = 0;
-                }   
-            }
-        }
-        
-        else
-        {
+            
             if (_agent.velocity != Vector3.zero)
             {
+                SetAnimatiorBool("Run", false);
                 SetAnimatiorBool("Walk", true);
             }
             else
@@ -86,16 +68,66 @@ public class Enemy : MonoBehaviour
             
             _checkEnemyWander += Time.deltaTime;
 
-            if (_checkEnemyWander >= wanderTimer)
+            if (_checkEnemyWander >= _wanderTimer)
             {
                 _agent.speed = 1;
                 _checkEnemyWander = 0;
-                Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1);
+                Vector3 newPos = RandomNavSphere(transform.position, _wanderRadius, -1);
                 _agent.SetDestination(newPos);
+            }
+        }
+        else
+        {
+            SetAnimatiorBool("Battle", true);
+            
+            Vector3 targetPlayerPos = _targetPlayer.transform.position;
+            float diff = Vector3.Distance(targetPlayerPos, transform.position);
+
+            if (diff > enemyData.range)
+            {
+                if (_agent.velocity != Vector3.zero)
+                {
+                    SetAnimatiorBool("Walk", false);
+                    SetAnimatiorBool("Run", true);
+                }
+
+                Vector3 normalizeVec = (targetPlayerPos - transform.position).normalized;
+                Vector3 targetVec = targetPlayerPos - (normalizeVec * (enemyData.range * 0.9f));
+
+                _agent.SetDestination(targetVec);
+            }
+            else
+            {
+                SetAnimatiorBool("Run", false);
+
+                _checkEnemyDPS += Time.deltaTime;
+
+                if (_checkEnemyDPS >= enemyData.dps)
+                {
+                    _checkEnemyDPS = 0;
+                    Attack();
+                }   
             }
         }
     }
 
+    public void GetDamage(int dmg, Action dieAct)
+    {
+        SetAnimationTrigger("Hit");
+        enemyData.hp -= dmg;
+
+        if (enemyData.hp <= 0)
+        {
+            Die();
+            dieAct?.Invoke();
+        }
+    }
+
+    private void Die()
+    {
+        
+    }
+    
     private Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
     {
         Vector3 randDirection = UnityEngine.Random.insideUnitSphere * dist;
@@ -113,8 +145,12 @@ public class Enemy : MonoBehaviour
     {
         for (int i = (int) PlayerType.DUALSWORD; i < (int) PlayerType.NONE; i++)
         {
-            if (Vector3.Distance(PlayerManager.instance.players[i].transform.position, transform.position) <=
-                enemyData.chaseRange)
+            Player p = PlayerManager.instance.players[i];
+
+            if (p.IsDeath)
+                break;
+
+            if (Vector3.Distance(p.transform.position, transform.position) <= enemyData.chaseRange)
             {
                 return PlayerManager.instance.players[i];
             }
@@ -122,14 +158,21 @@ public class Enemy : MonoBehaviour
         
         return null;
     }
-    
-    
-    public void SetAnimatiorBool(string animationName, bool value)
+
+    private void Attack()
+    {
+        int randomAttackAnimation = UnityEngine.Random.Range(1, 3);
+        string animationAniamtioName = "Attack" + randomAttackAnimation;
+
+        SetAnimationTrigger(animationAniamtioName);
+    }
+
+    private void SetAnimatiorBool(string animationName, bool value)
     {
         _animator.SetBool(animationName, value);
     }
 
-    public void SetAnimationTrigger(string animationName)
+    private void SetAnimationTrigger(string animationName)
     {
         _animator.SetTrigger(animationName);   
     }

@@ -12,6 +12,10 @@ public class InGameManager : Singleton<InGameManager>
     
     public CinemachineVirtualCamera curCam;
 
+    private float[] _playerDeathTime = new float[3];
+
+    private float _playTime;
+    
     public void SetCamera(int idx)
     {
         if (idx == _curCamIdx)
@@ -29,8 +33,33 @@ public class InGameManager : Singleton<InGameManager>
         cams[idx].gameObject.SetActive(true);
     }
 
+    public void SetDeathTime(int idx)
+    {
+        _playerDeathTime[idx] = _playTime + 10f;
+    }
+
     private void Start()
     {
         curCam = cams[0];
+    }
+
+    private void Update()
+    {
+        _playTime += Time.deltaTime;
+        
+        if (_playerDeathTime[0] >= _playTime)
+        {
+            PlayerManager.instance.players[0].Revive();
+        }
+
+        if (_playerDeathTime[1] >= _playTime)
+        {
+            PlayerManager.instance.players[1].Revive();
+        }
+
+        if (_playerDeathTime[2] >= _playTime)
+        {
+            PlayerManager.instance.players[2].Revive();
+        }
     }
 }

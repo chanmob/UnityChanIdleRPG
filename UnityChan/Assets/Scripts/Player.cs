@@ -24,93 +24,146 @@ public class PlayerData
 
 public class Player : MonoBehaviour
 {
+    public PlayerType playerType = PlayerType.NONE;
+    
     private MeleeWeaponTrail[] _trails;
     
     public PlayerData playerData;
     
     private NavMeshAgent _agent;
-    private Animator _animtor;
     
-    public float wanderRadius;
-    public float wanderTimer;
+    private Animator _animator;
 
-    private float timer;
+    private Enemy _targetEnemy;
 
+    private float _checkDPS;
+    
+    private bool _isDeath = false;
+    
+    public bool IsDeath
+    {
+        get { return _isDeath; }
+    }
+    
     // Start is called before the first frame update
 
     private void Awake()
     {
         _trails = GetComponentsInChildren<MeleeWeaponTrail>();
         _agent = GetComponent<NavMeshAgent> ();
-        _animtor = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
     }
-
-    void Start()
-    {
-
-        timer = wanderTimer;
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if(_isDeath)
+            return;
+
+        if (ReferenceEquals(_targetEnemy, null))
         {
-            _animtor.SetTrigger("Attack1");
+            _targetEnemy = FindEnemy();
         }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            _animtor.SetTrigger("Attack2");
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            _animtor.SetTrigger("Attack3");
-        }
-        else if (Input.GetKeyDown(KeyCode.F))
-        {
-            _animtor.SetTrigger("Attack4");
-        }
-        
-        
-        
-        if (_agent.velocity != Vector3.zero)
-        {
-            _animtor.SetBool("Moving", true);
-        }
+
         else
         {
-            _animtor.SetBool("Moving", false);
-        }
-        
-        timer += Time.deltaTime;
+            Vector3 targetEnemyPos = _targetEnemy.transform.position;
+            float diff = Vector3.Distance(targetEnemyPos, transform.position);
 
-        if (timer >= wanderTimer)
-        {
-            Attack();
-            // Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1);
-            // _agent.SetDestination(newPos);
-             timer = 0;
+            if (diff > playerData.range)
+            {
+                SetAnimatiorBool("Moving", true);
+                Vector3 normalizeVec = (targetEnemyPos - transform.position).normalized;
+                Vector3 targetVec = targetEnemyPos - (normalizeVec * (playerData.range * 0.9f));
+
+                _agent.SetDestination(targetVec);
+            }
+            else
+            {
+                SetAnimatiorBool("Moving", false);
+                _checkDPS += Time.deltaTime;
+
+                if (_checkDPS >= playerData.dps)
+                {
+                    _checkDPS = 0;
+                    Attack();
+                } 
+            }
         }
     }
 
-    Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
+    public void Revive()
     {
-        Vector3 randDirection = UnityEngine.Random.insideUnitSphere * dist;
- 
-        randDirection += origin;
- 
-        NavMeshHit navHit;
- 
-        NavMesh.SamplePosition (randDirection, out navHit, dist, layermask);
- 
-        return navHit.position;
+        SetAnimatiorBool("Alive", true);
+    }
+    
+    public void GetDamage(int dmg, Action dieAct = null)
+    {
+        bool bigDmg = dmg >= playerData.hp * 0.1f;
+        
+        if (bigDmg)
+            SetAnimationTrigger("Hit2");
+        else
+            SetAnimationTrigger("Hit1");
+        
+        playerData.hp -= dmg;
+
+        if (playerData.hp <= 0)
+        {
+            Die(bigDmg);
+            dieAct?.Invoke();
+        }
+    }
+
+    private void Die(bool bigDamage)
+    {
+        _isDeath = true;
+        
+        if(bigDamage)
+            SetAnimationTrigger("Die1");
+        else
+            SetAnimationTrigger("Die2");
+        
+        InGameManager.instance.SetDeathTime((int)playerType);
     }
 
     private void Attack()
     {
         int randomAttackAnimation = Random.Range(1, 5);
-        string animationTriggerName = "Attack" + randomAttackAnimation.ToString();
-        _animtor.SetTrigger(animationTriggerName);
+        string animationTriggerName = "Attack" + randomAttackAnimation;
+        SetAnimationTrigger(animationTriggerName);
+    }
+
+    private Enemy FindEnemy()
+    {
+        Enemy targetEnemy = null;
+        
+        int len = EnemyManager.instance.survivedEnemy.Count;
+        float diff = 0;
+        float maxDiff = float.MaxValue;
+        
+        for (int i = 0; i < len; i++)
+        {
+            Enemy e = EnemyManager.instance.survivedEnemy[i];
+            diff = (transform.position - e.transform.position).sqrMagnitude;
+            if (diff < maxDiff)
+            {
+                maxDiff = diff;
+                targetEnemy = e;
+            }
+        }
+        
+        return targetEnemy;
+    }
+    
+    private void SetAnimatiorBool(string animationName, bool value)
+    {
+        _animator.SetBool(animationName, value);
+    }
+
+    private void SetAnimationTrigger(string animationName)
+    {
+        _animator.SetTrigger(animationName);   
     }
     
     //공격 애니메이션 트레일
