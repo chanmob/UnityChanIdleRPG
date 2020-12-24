@@ -51,11 +51,13 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        _targetPlayer = FindPlayer();
+        
         if (ReferenceEquals(_targetPlayer, null))
         {
             SetAnimatiorBool("Battle", false);
             
-            _targetPlayer = FindPlayer();
+            //_targetPlayer = FindPlayer();
             
             if (_agent.velocity != Vector3.zero)
             {
@@ -71,7 +73,7 @@ public class Enemy : MonoBehaviour
 
             if (_checkEnemyWander >= _wanderTimer)
             {
-                _agent.speed = 1;
+                _agent.speed = enemyData.walkSpeed;
                 _checkEnemyWander = 0;
                 Vector3 newPos = RandomNavSphere(transform.position, _wanderRadius, -1);
                 _agent.SetDestination(newPos);
@@ -93,6 +95,8 @@ public class Enemy : MonoBehaviour
                     SetAnimatiorBool("Run", true);
                 }
 
+                _agent.speed = enemyData.moveSpeed;
+                
                 Vector3 normalizeVec = (targetPlayerPos - transform.position).normalized;
                 Vector3 targetVec = targetPlayerPos - (normalizeVec * (enemyData.range * 0.9f));
 
@@ -113,7 +117,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void GetDamage(int dmg, Action dieAct)
+    public void GetDamage(int dmg, Action dieAct = null)
     {
         SetAnimationTrigger("Hit");
         enemyData.hp -= dmg;
@@ -127,7 +131,8 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        
+        EnemyManager.instance.survivedEnemy.Remove(this);
+        ObjectPoolManager.instance.ReturnEnemy(this);
     }
     
     private Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)

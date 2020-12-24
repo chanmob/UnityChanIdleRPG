@@ -362,6 +362,7 @@ public class MeleeWeaponTrail : MonoBehaviour
 
 	private CapsuleCollider _capsuleCollider;
 	private HashSet<GameObject> _hitedMonster;
+	public int damage;
 
 	public void HitStart()
 	{
@@ -382,6 +383,7 @@ public class MeleeWeaponTrail : MonoBehaviour
 				_hitedMonster.Add(other.gameObject);
 			
 			//TODO 몬스터 데미지 작업
+			other.GetComponent<Enemy>().GetDamage(damage);
 		}
 	}
 }

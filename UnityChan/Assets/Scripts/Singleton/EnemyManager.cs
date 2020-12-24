@@ -25,11 +25,14 @@ public class EnemyManager : Singleton<EnemyManager>
         {
             yield return new WaitForSeconds(2f);
 
-            var e = ObjectPoolManager.instance.GetEnemy(EnemyType.SLIME);
-            var ran = Random.insideUnitCircle * 3f;
-            e.transform.position = new Vector3(ran.x, 0, ran.y);
-            e.gameObject.SetActive(true);
-            survivedEnemy.Add(e);
+            for (int i = 0; i < 3; i++)
+            {
+                var e = ObjectPoolManager.instance.GetEnemy(EnemyType.SLIME);
+                var ran = Random.insideUnitCircle * 10f;
+                e.transform.position = new Vector3(ran.x, 0, ran.y);
+                e.gameObject.SetActive(true);
+                survivedEnemy.Add(e);
+            }
         }
     }
     

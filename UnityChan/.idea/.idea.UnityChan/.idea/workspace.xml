@@ -4,6 +4,8 @@
     <list default="true" id="8a5780b7-c155-4927-971e-cd253eb85949" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityChan/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnityChan/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityChan/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnityChan/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Animator_DualSword.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Animator_DualSword.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Asset/MeleeWeaponTrail/Scripts/MeleeWeaponTrail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/MeleeWeaponTrail/Scripts/MeleeWeaponTrail.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy_Slime.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy_Slime.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy_TurtleShell.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy_TurtleShell.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/InGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/InGame.unity" afterDir="false" />
@@ -31,13 +33,13 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameUIManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerTest.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Singleton/ObjectPoolManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Asset/MeleeWeaponTrail/Scripts/MeleeWeaponTrail.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Singleton/InputManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Singleton/PlayerManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Asset/MeleeWeaponTrail/Scripts/MeleeWeaponTrail.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Singleton/EnemyManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1m17PfmGZoILRJEvBpuX1Ncx8is" />
@@ -95,6 +97,7 @@
       <workItem from="1608808459108" duration="792000" />
       <workItem from="1608809275603" duration="4622000" />
       <workItem from="1608816150285" duration="2390000" />
+      <workItem from="1608820733738" duration="2437000" />
     </task>
     <servers />
   </component>

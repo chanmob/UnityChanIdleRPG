@@ -1076,12 +1076,12 @@ MonoBehaviour:
     chaseRange: 0
     range: 0
     dps: 0
-    moveSpeed: 0
-    walkSpeed: 0
+    moveSpeed: 1
+    walkSpeed: 3.5
   _targetPlayer: {fileID: 0}
   _checkEnemyDPS: 0
-  _wanderRadius: 0
-  _wanderTimer: 0
+  _wanderRadius: 5
+  _wanderTimer: 5
 --- !u!1 &1530870458610041424
 GameObject:
   m_ObjectHideFlags: 0

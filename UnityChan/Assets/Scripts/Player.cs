@@ -19,7 +19,6 @@ public class PlayerData
     public float range; //사거리
     public float dps; //공격속도
     public float moveSpeed; //이동속도(뛰기)
-    public float walkSpeed; //이동속도(걷기)
 }
 
 public class Player : MonoBehaviour
@@ -39,6 +38,7 @@ public class Player : MonoBehaviour
     private float _checkDPS;
     
     private bool _isDeath = false;
+    private bool _isAttack = false;
 
     public bool IsDeath
     {
@@ -53,20 +53,36 @@ public class Player : MonoBehaviour
         _agent = GetComponent<NavMeshAgent> ();
         _animator = GetComponent<Animator>();
     }
+
+    private void Start()
+    {
+        int len = _trails.Length;
+        for (int i = 0; i < len; i++)
+        {
+            _trails[i].damage = playerData.damage;
+        }
+    }
     
     // Update is called once per frame
     void Update()
     {
         if(_isDeath)
             return;
+        
+        if (_isAttack)
+            return;
+        
+        _checkDPS += Time.deltaTime;
+        _targetEnemy = FindEnemy();
 
-        if (ReferenceEquals(_targetEnemy, null))
+        if(!ReferenceEquals(_targetEnemy, null))
         {
-            _targetEnemy = FindEnemy();
-        }
-
-        else
-        {
+            if (!_targetEnemy.gameObject.activeSelf)
+            {
+                _targetEnemy = null;
+                return;
+            }
+            
             transform.LookAt(_targetEnemy.transform);
             Vector3 targetEnemyPos = _targetEnemy.transform.position;
             float diff = Vector3.Distance(targetEnemyPos, transform.position);
@@ -82,7 +98,6 @@ public class Player : MonoBehaviour
             else
             {
                 SetAnimatiorBool("Moving", false);
-                _checkDPS += Time.deltaTime;
 
                 if (_checkDPS >= playerData.dps)
                 {
@@ -156,6 +171,11 @@ public class Player : MonoBehaviour
         
         return targetEnemy;
     }
+
+    private void KillEnemy()
+    {
+        _targetEnemy = null;
+    }
     
     private void SetAnimatiorBool(string animationName, bool value)
     {
@@ -175,6 +195,8 @@ public class Player : MonoBehaviour
         
         _trails[0].Emit = true;
         _trails[0].HitStart();
+        
+        _isAttack = true;
     }
     
     public void RightHandleTrailOn()
@@ -184,6 +206,8 @@ public class Player : MonoBehaviour
         
         _trails[1].Emit = true;
         _trails[1].HitStart();
+    
+        _isAttack = true;
     }
 
     public void AllTrailOff()
@@ -194,6 +218,8 @@ public class Player : MonoBehaviour
             _trails[i].Emit = false;
             _trails[i].HitEnd();
         }
+
+        _isAttack = false;
     }
 
     public void AllTrailOn()
@@ -204,6 +230,8 @@ public class Player : MonoBehaviour
             _trails[i].Emit = true;
             _trails[i].HitStart();        
         }
+
+        _isAttack = true;
     }
     //공격 애니메이션 트레일
 }
