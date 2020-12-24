@@ -436,8 +436,8 @@ MonoBehaviour:
     chaseRange: 3
     range: 1
     dps: 3
-    moveSpeed: 1
-    walkSpeed: 3.5
+    moveSpeed: 3
+    walkSpeed: 1
   _targetPlayer: {fileID: 0}
   _checkEnemyDPS: 0
   _wanderRadius: 5
