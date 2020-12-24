@@ -39,12 +39,12 @@ public class Player : MonoBehaviour
     private float _checkDPS;
     
     private bool _isDeath = false;
-    
+
     public bool IsDeath
     {
         get { return _isDeath; }
     }
-    
+
     // Start is called before the first frame update
 
     private void Awake()
@@ -67,6 +67,7 @@ public class Player : MonoBehaviour
 
         else
         {
+            transform.LookAt(_targetEnemy.transform);
             Vector3 targetEnemyPos = _targetEnemy.transform.position;
             float diff = Vector3.Distance(targetEnemyPos, transform.position);
 

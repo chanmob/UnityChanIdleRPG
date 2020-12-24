@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
     
     private Animator _animator;
 
+    [SerializeField]
     private Player _targetPlayer = null;
     
     [SerializeField]
@@ -78,6 +79,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            transform.LookAt(_targetPlayer.transform);
             SetAnimatiorBool("Battle", true);
             
             Vector3 targetPlayerPos = _targetPlayer.transform.position;
@@ -143,17 +145,30 @@ public class Enemy : MonoBehaviour
     
     private Player FindPlayer()
     {
+        Player target = null;
+        
+        float maxDiff = float.MaxValue;
+
         for (int i = (int) PlayerType.DUALSWORD; i < (int) PlayerType.NONE; i++)
         {
             Player p = PlayerManager.instance.players[i];
 
             if (p.IsDeath)
-                break;
-
-            if (Vector3.Distance(p.transform.position, transform.position) <= enemyData.chaseRange)
             {
-                return PlayerManager.instance.players[i];
+                break;
             }
+
+            float diff = Vector3.Distance(p.transform.position, transform.position);
+            if (diff < maxDiff)
+            {
+                maxDiff = diff;
+                target = p;
+            }
+        }
+
+        if (maxDiff <= enemyData.chaseRange)
+        {
+            return target;
         }
         
         return null;
