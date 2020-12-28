@@ -63,6 +63,7 @@
         <e p="Scripts" t="Include">
           <e p="Enemy.cs" t="Include" />
           <e p="Item.cs" t="Include" />
+          <e p="ItemData.cs" t="Include" />
           <e p="ItemInventory.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="Singleton" t="Include">
@@ -76,6 +77,7 @@
           </e>
           <e p="Skill.cs" t="Include" />
           <e p="SkillInventory.cs" t="Include" />
+          <e p="UserData.cs" t="Include" />
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />

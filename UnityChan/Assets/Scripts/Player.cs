@@ -11,6 +11,7 @@ public enum PlayerType { DUALSWORD, POLEARM, GREATSWORD, NONE }
 public class PlayerData
 {
     public int hp; //체력
+    public int curHp;
     public int hpRegeneration; //체력재생
     public int damage; //데미지
     public int defense; //방어력
@@ -19,6 +20,7 @@ public class PlayerData
     public float range; //사거리
     public float dps; //공격속도
     public float moveSpeed; //이동속도(뛰기)
+    public ItemData item;
 }
 
 public class Player : MonoBehaviour
