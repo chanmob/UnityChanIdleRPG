@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class InGameUIManager : Singleton<InGameUIManager>
 {
-    public void SwitchCamera(int idx)
-    {
-        InGameManager.instance.SetCamera(idx);
-    }
+    public UI_InGameMainUI ui_InGameMainUI;
+    public UI_SwitchCam ui_SwitchCam;
 }

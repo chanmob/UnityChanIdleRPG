@@ -4,9 +4,12 @@
     <list default="true" id="8a5780b7-c155-4927-971e-cd253eb85949" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityChan/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnityChan/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityChan/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnityChan/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ItemInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ItemInventory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Asset/GUI Kit Mono Round/_PNG/19_Function_Button/Button_Color_Bg/button_radius_green.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/GUI Kit Mono Round/_PNG/19_Function_Button/Button_Color_Bg/button_radius_green.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/InGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/InGame.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameUIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Circle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Circle.png.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,12 +31,10 @@
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/InGameUIManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/InGameManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameUIManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerTest.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Singleton/ObjectPoolManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Singleton/InputManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Singleton/PlayerManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Asset/MeleeWeaponTrail/Scripts/MeleeWeaponTrail.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Singleton/EnemyManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" />
@@ -44,6 +45,10 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Item.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UserData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameUIManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/UI_InGameMainUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/UI_SwitchCam.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1m17PfmGZoILRJEvBpuX1Ncx8is" />
@@ -104,6 +109,7 @@
       <workItem from="1608820733738" duration="2437000" />
       <workItem from="1609055728005" duration="481000" />
       <workItem from="1609117578846" duration="2714000" />
+      <workItem from="1609244268532" duration="1323000" />
     </task>
     <servers />
   </component>

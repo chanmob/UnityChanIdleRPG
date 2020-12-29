@@ -15,6 +15,8 @@ public class InGameManager : Singleton<InGameManager>
     private float[] _playerDeathTime = new float[3];
 
     private float _playTime;
+
+    private Player player;
     
     public void SetCamera(int idx)
     {
@@ -31,6 +33,9 @@ public class InGameManager : Singleton<InGameManager>
         _curCamIdx = idx;
         curCam = cams[idx];
         cams[idx].gameObject.SetActive(true);
+        UI_InGameMainUI mainUI = InGameUIManager.instance.ui_InGameMainUI;
+        mainUI.image_Sprite.sprite = mainUI.characterSprite[idx];
+        player = PlayerManager.instance.players[idx];
     }
 
     public void SetDeathTime(int idx)
@@ -41,6 +46,7 @@ public class InGameManager : Singleton<InGameManager>
     private void Start()
     {
         curCam = cams[0];
+        player = PlayerManager.instance.players[0];
     }
 
     private void Update()

@@ -877,6 +877,7 @@ GameObject:
   m_Component:
   - component: {fileID: 60653935}
   - component: {fileID: 60653936}
+  - component: {fileID: 60653937}
   m_Layer: 5
   m_Name: Panel_SwitchCam
   m_TagString: Untagged
@@ -912,6 +913,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 60653934}
   m_CullTransparentMesh: 0
+--- !u!114 &60653937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60653934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410f5044673a10240bb201ee13d993f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprite_ButtonImg:
+  - {fileID: 21300000, guid: 708829cc54f97413dac29875ba319162, type: 3}
+  - {fileID: 21300000, guid: 77ac3d128d1a54dcd862313cbc9fde47, type: 3}
+  _Image_Button:
+  - {fileID: 1569453466}
+  - {fileID: 307604932}
+  - {fileID: 1916327100}
 --- !u!1 &69101015
 GameObject:
   m_ObjectHideFlags: 0
@@ -4783,7 +4803,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 307604932}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 60653937}
+        m_MethodName: SwitchCamera
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &307604932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9582,6 +9613,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 746017213}
+  - component: {fileID: 746017214}
   m_Layer: 5
   m_Name: MainUI
   m_TagString: Untagged
@@ -9615,6 +9647,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &746017214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746017212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e832f15110a088a4f88e2f7cd3f85804, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image_Sprite: {fileID: 636047048}
+  text_Coin: {fileID: 9751615}
+  text_Gem: {fileID: 1752147710}
+  text_Exp: {fileID: 209988682}
+  slider_HP: {fileID: 1490506205}
+  slider_Exp: {fileID: 1335097641}
+  characterSprite:
+  - {fileID: 21300000, guid: 88d7d59e2bc469f4bb5a599a6469aca0, type: 3}
+  - {fileID: 21300000, guid: d52d894ceaa38d6478eb2b4921714ad5, type: 3}
+  - {fileID: 21300000, guid: e9eae555ccc54f241a97e312553e1d7a, type: 3}
 --- !u!1 &754364442
 GameObject:
   m_ObjectHideFlags: 0
@@ -11012,7 +11066,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -11036,7 +11090,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 834570740}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 746017214}
+        m_MethodName: SwitchCamOn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &834570740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14632,7 +14697,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1096706472}
-  m_LocalRotation: {x: 0.000000060114985, y: -0.973249, z: 0.22975293, w: 0.0000002546442}
+  m_LocalRotation: {x: 0.000000068954634, y: -0.973249, z: 0.22975291, w: 0.0000002920896}
   m_LocalPosition: {x: 0.000016852817, y: 15, z: 30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -14942,7 +15007,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1136708869}
-  m_LocalRotation: {x: 0.000000060114985, y: -0.973249, z: 0.22975293, w: 0.0000002546442}
+  m_LocalRotation: {x: 0.000000068954634, y: -0.973249, z: 0.22975291, w: 0.0000002920896}
   m_LocalPosition: {x: 0.000016852817, y: 15, z: 30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -17654,6 +17719,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 0
+  ui_InGameMainUI: {fileID: 746017214}
+  ui_SwitchCam: {fileID: 60653937}
 --- !u!1 &1310713404
 GameObject:
   m_ObjectHideFlags: 0
@@ -20309,7 +20376,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1569453466}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 60653937}
+        m_MethodName: SwitchCamera
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1569453466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20330,7 +20408,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 77ac3d128d1a54dcd862313cbc9fde47, type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -21326,7 +21404,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1629372176}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 60653937}
+        m_MethodName: PanelClose
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1629372176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23909,7 +23998,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1916327100}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 60653937}
+        m_MethodName: SwitchCamera
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1916327100
 MonoBehaviour:
   m_ObjectHideFlags: 0

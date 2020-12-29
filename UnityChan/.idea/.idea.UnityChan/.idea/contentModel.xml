@@ -77,6 +77,10 @@
           </e>
           <e p="Skill.cs" t="Include" />
           <e p="SkillInventory.cs" t="Include" />
+          <e p="UI" t="Include">
+            <e p="UI_InGameMainUI.cs" t="Include" />
+            <e p="UI_SwitchCam.cs" t="Include" />
+          </e>
           <e p="UserData.cs" t="Include" />
         </e>
       </e>
