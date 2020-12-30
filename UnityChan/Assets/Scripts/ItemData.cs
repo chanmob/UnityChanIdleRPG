@@ -10,14 +10,26 @@ public class ItemData : ScriptableObject
     {
         NORMAL,
         RARE,
-        UNIQUE,
         EPIC,
+        UNIQUE,
         LEGENDARY,
         NONE
     }
 
+    public enum Part
+    {
+        HEAD,
+        WEAPON,
+        ARMOR,
+        SHOES
+    }
+
     public Tier tier = Tier.NONE;
+    
     public Sprite itemSprite;
+    
+    public string itemName;
+    
     public int addDamage;
     public int addDefense;
     public int addHp;
