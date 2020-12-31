@@ -6,4 +6,6 @@ public class UserData : MonoBehaviour
 {
     public int coin;
     public int gem;
+    public int curExp;
+    public int needExp;
 }
