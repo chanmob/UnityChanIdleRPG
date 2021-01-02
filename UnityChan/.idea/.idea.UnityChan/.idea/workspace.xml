@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a5780b7-c155-4927-971e-cd253eb85949" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityChan/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnityChan/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityChan/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnityChan/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Animator_DualSword.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Animator_DualSword.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy_Slime.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy_Slime.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/InGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/InGame.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ItemInventory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ItemInventory.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameUIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SkillInventory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SkillInventory.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UI_InGameMainUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UI_InGameMainUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UI_SwitchCam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UI_SwitchCam.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +30,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/InGameUIManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/InGameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerTest.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Singleton/ObjectPoolManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Singleton/InputManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Singleton/PlayerManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Asset/MeleeWeaponTrail/Scripts/MeleeWeaponTrail.cs" />
@@ -52,7 +44,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Skill/SkillData_DamageUp.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SkillData.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameUIManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/UI_InGameMainUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/UI_Achievement.cs" />
@@ -63,6 +54,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/UI_MyInfo.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/UI_SkillInventory.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/UI_SwitchCam.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Singleton/ObjectPoolManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1m17PfmGZoILRJEvBpuX1Ncx8is" />
@@ -125,7 +118,7 @@
       <workItem from="1609117578846" duration="2714000" />
       <workItem from="1609244268532" duration="1323000" />
       <workItem from="1609566532456" duration="1941000" />
-      <workItem from="1609601070440" duration="3174000" />
+      <workItem from="1609601070440" duration="5369000" />
     </task>
     <servers />
   </component>

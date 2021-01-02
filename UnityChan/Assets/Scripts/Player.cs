@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
     private Enemy _targetEnemy;
 
     private float _checkDPS;
+    private float _attackSpeed;
     
     private bool _isDeath = false;
     private bool _isAttack = false;
@@ -71,6 +72,8 @@ public class Player : MonoBehaviour
         {
             _trails[i].damage = playerData.damage;
         }
+
+        SetAttackSpeed();
     }
     
     // Update is called once per frame
@@ -109,7 +112,7 @@ public class Player : MonoBehaviour
             {
                 SetAnimatiorBool("Moving", false);
 
-                if (_checkDPS >= playerData.dps)
+                if (_checkDPS >= _attackSpeed)
                 {
                     _checkDPS = 0;
                     Attack();
@@ -195,6 +198,34 @@ public class Player : MonoBehaviour
     private void SetAnimationTrigger(string animationName)
     {
         _animator.SetTrigger(animationName);   
+    }
+
+    private void SetAttackSpeed()
+    {
+        _attackSpeed = 1f / playerData.dps;
+
+        if (playerData.dps > 1)
+        {
+            if (playerData.playerType == PlayerType.DUALSWORD)
+            {
+                _animator.SetFloat("AttackSpeed", playerData.dps * 2);
+            }
+            else
+            {
+                _animator.SetFloat("AttackSpeed", playerData.dps);
+            }
+        }
+        else
+        {
+            if (playerData.playerType == PlayerType.DUALSWORD)
+            {
+                _animator.SetFloat("AttackSpeed", 2);
+            }
+            else
+            {
+                _animator.SetFloat("AttackSpeed", 1);
+            }
+        }
     }
     
     //공격 애니메이션 트레일
