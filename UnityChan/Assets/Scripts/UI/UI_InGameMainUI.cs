@@ -20,4 +20,39 @@ public class UI_InGameMainUI : MonoBehaviour
     {
         InGameUIManager.instance.ui_SwitchCam.gameObject.SetActive(true);
     }
+
+    public void OpenMyInfo()
+    {
+        InGameUIManager.instance.ui_MyInfo.gameObject.SetActive(true);
+    }
+
+    public void OpenItemInventory()
+    {
+        
+    }
+
+    public void OpenGrowth()
+    {
+        
+    }
+
+    public void OpenAchievement()
+    {
+        
+    }
+
+    public void OpenSkillInventory()
+    {
+        
+    }
+
+    public void OpenStore()
+    {
+        
+    }
+
+    public void OpenSetting()
+    {
+        
+    }
 }

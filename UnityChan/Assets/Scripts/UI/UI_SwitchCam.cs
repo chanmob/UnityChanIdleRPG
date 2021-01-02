@@ -21,10 +21,10 @@ public class UI_SwitchCam : MonoBehaviour
         _Image_Button[idx].sprite = _sprite_ButtonImg[1];
 
         InGameManager.instance.SetCamera(idx);
-        PanelClose();
+        CloseUI();
     }
 
-    public void PanelClose()
+    public void CloseUI()
     {
         gameObject.SetActive(false);
     }

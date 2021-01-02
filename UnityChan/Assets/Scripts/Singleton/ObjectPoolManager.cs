@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ObjectPoolManager : Singleton<ObjectPoolManager>
 {
+    [SerializeField]
+    private Transform _enemyParent;
+
     [Header("Slime")]
     //Slime
     [SerializeField]
@@ -18,9 +21,6 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
     private Stack<Enemy> _stack_TurtleShellEnemy;
     //TurtleShell
     
-    [SerializeField]
-    private Transform _enemyParent;
-
     protected override void OnAwake()
     {
         base.OnAwake();

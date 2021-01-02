@@ -60,11 +60,15 @@
             </e>
           </e>
         </e>
+        <e p="FantasyIconsPackFree" t="Include">
+          <e p="Demo" t="Include">
+            <e p="IconViewer.cs" t="Include" />
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="Enemy.cs" t="Include" />
           <e p="Item.cs" t="Include" />
           <e p="ItemData.cs" t="Include" />
-          <e p="ItemInventory.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="Singleton" t="Include">
             <e p="EnemyManager.cs" t="Include" />
@@ -77,9 +81,16 @@
             <e p="Singleton.cs" t="Include" />
           </e>
           <e p="Skill.cs" t="Include" />
-          <e p="SkillInventory.cs" t="Include" />
+          <e p="SkillData.cs" t="Include" />
           <e p="UI" t="Include">
+            <e p="UI_Achievement.cs" t="Include" />
+            <e p="UI_Growth.cs" t="Include" />
             <e p="UI_InGameMainUI.cs" t="Include" />
+            <e p="UI_ItemInventory.cs" t="Include" />
+            <e p="UI_MyInfo.cs" t="Include" />
+            <e p="UI_Setting.cs" t="Include" />
+            <e p="UI_SkillInventory.cs" t="Include" />
+            <e p="UI_Store.cs" t="Include" />
             <e p="UI_SwitchCam.cs" t="Include" />
           </e>
           <e p="UserData.cs" t="Include" />

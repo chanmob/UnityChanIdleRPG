@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillInventory : MonoBehaviour
+public class UI_SkillInventory : MonoBehaviour
 {
     private List<Skill> _list_Skills;
 
@@ -24,5 +24,10 @@ public class SkillInventory : MonoBehaviour
         {
             
         }
+    }
+    
+    public void CloseUI()
+    {
+        gameObject.SetActive(false);
     }
 }

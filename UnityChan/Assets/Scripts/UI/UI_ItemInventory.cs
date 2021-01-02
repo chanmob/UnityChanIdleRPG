@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemInventory : MonoBehaviour
+public class UI_ItemInventory : MonoBehaviour
 {
     private List<Item> _list_Items;
 
@@ -41,5 +41,10 @@ public class ItemInventory : MonoBehaviour
         {
             
         }
+    }
+    
+    public void CloseUI()
+    {
+        gameObject.SetActive(false);
     }
 }

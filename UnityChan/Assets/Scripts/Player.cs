@@ -10,6 +10,8 @@ public enum PlayerType { DUALSWORD, POLEARM, GREATSWORD, NONE }
 [Serializable]
 public class PlayerData
 {
+    public PlayerType playerType = PlayerType.NONE;
+
     public int hp; //체력
     public int curHp;
     public int hpRegeneration; //체력재생
@@ -20,12 +22,18 @@ public class PlayerData
     public float range; //사거리
     public float dps; //공격속도
     public float moveSpeed; //이동속도(뛰기)
-    public ItemData item;
+    public ItemData item_Weapon; //무기
+    public ItemData item_Head; //방어구(머리)
+    public ItemData item_Armor; //방어구(갑옷)
+    public ItemData item_Boots; //방어구(신발)
+    public SkillData skill_first; //스킬1
+    public SkillData skill_second; //스킬2
+    public SkillData skill_third; //스킬3
 }
 
 public class Player : MonoBehaviour
 {
-    public PlayerType playerType = PlayerType.NONE;
+    //public PlayerType playerType = PlayerType.NONE;
     
     private MeleeWeaponTrail[] _trails;
     
@@ -142,7 +150,7 @@ public class Player : MonoBehaviour
         else
             SetAnimationTrigger("Die2");
         
-        InGameManager.instance.SetDeathTime((int)playerType);
+        InGameManager.instance.SetDeathTime((int)playerData.playerType);
     }
 
     private void Attack()
