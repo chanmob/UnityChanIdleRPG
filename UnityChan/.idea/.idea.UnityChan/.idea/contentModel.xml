@@ -71,6 +71,7 @@
             <e p="InGameManager.cs" t="Include" />
             <e p="InGameUIManager.cs" t="Include" />
             <e p="InputManager.cs" t="Include" />
+            <e p="ItemDataManager.cs" t="Include" />
             <e p="ObjectPoolManager.cs" t="Include" />
             <e p="PlayerManager.cs" t="Include" />
             <e p="Singleton.cs" t="Include" />

@@ -3,13 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8a5780b7-c155-4927-971e-cd253eb85949" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityChan/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnityChan/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityChan/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnityChan/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityChan/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnityChan/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Asset/GUI Kit Mono Round/_PNG/19_Function_Button/Button_Color_Bg/button_radius_green.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/GUI Kit Mono Round/_PNG/19_Function_Button/Button_Color_Bg/button_radius_green.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/InGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/InGame.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameUIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Circle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Circle.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UserData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UserData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,12 +42,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/ItemInventory.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ItemData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Item.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UserData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameUIManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/UI_InGameMainUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/UI_SwitchCam.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UserData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1m17PfmGZoILRJEvBpuX1Ncx8is" />
@@ -110,6 +109,7 @@
       <workItem from="1609055728005" duration="481000" />
       <workItem from="1609117578846" duration="2714000" />
       <workItem from="1609244268532" duration="1323000" />
+      <workItem from="1609566532456" duration="1941000" />
     </task>
     <servers />
   </component>

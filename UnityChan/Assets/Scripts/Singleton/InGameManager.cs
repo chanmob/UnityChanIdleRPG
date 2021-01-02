@@ -17,7 +17,9 @@ public class InGameManager : Singleton<InGameManager>
     private float _playTime;
 
     private Player player;
-    
+
+    private UserData _userData;
+
     public void SetCamera(int idx)
     {
         if (idx == _curCamIdx)
@@ -45,6 +47,7 @@ public class InGameManager : Singleton<InGameManager>
 
     private void Start()
     {
+        _userData = new UserData();
         curCam = cams[0];
         player = PlayerManager.instance.players[0];
     }
@@ -52,20 +55,27 @@ public class InGameManager : Singleton<InGameManager>
     private void Update()
     {
         _playTime += Time.deltaTime;
-        
-        if (_playerDeathTime[0] >= _playTime)
+
+        if (PlayerManager.instance.players[0].IsDeath && _playerDeathTime[0] >= _playTime)
         {
             PlayerManager.instance.players[0].Revive();
         }
-
-        if (_playerDeathTime[1] >= _playTime)
+        
+        if (PlayerManager.instance.players[1].IsDeath && _playerDeathTime[1] >= _playTime)
         {
             PlayerManager.instance.players[1].Revive();
         }
-
-        if (_playerDeathTime[2] >= _playTime)
+        
+        if (PlayerManager.instance.players[2].IsDeath && _playerDeathTime[2] >= _playTime)
         {
             PlayerManager.instance.players[2].Revive();
         }
+
+        InGameUIManager.instance.ui_InGameMainUI.slider_HP.value = player.playerData.curHp / (float)player.playerData.hp;
+        float exp = _userData.curExp / (float)_userData.needExp;
+        InGameUIManager.instance.ui_InGameMainUI.slider_Exp.value = exp;
+        InGameUIManager.instance.ui_InGameMainUI.text_Exp.text = (exp * 100).ToString("0.00") + "%";
+        InGameUIManager.instance.ui_InGameMainUI.text_Coin.text = _userData.coin.ToString();
+        InGameUIManager.instance.ui_InGameMainUI.text_Gem.text = _userData.gem.ToString();
     }
 }
