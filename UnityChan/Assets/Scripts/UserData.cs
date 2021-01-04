@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UserData
 {
+    public int level = 1;
     public int coin;
     public int gem;
     public int curExp;
@@ -15,6 +16,7 @@ public class UserData
 
         if (curExp >= needExp)
         {
+            level++;
             int diff = curExp - needExp;
             curExp = diff;
             needExp += (int)(needExp * 1.2f);

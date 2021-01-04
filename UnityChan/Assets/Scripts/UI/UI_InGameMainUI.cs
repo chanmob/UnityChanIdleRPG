@@ -28,31 +28,31 @@ public class UI_InGameMainUI : MonoBehaviour
 
     public void OpenItemInventory()
     {
-        
+        InGameUIManager.instance.ui_ItemInventory.gameObject.SetActive(true);
     }
 
     public void OpenGrowth()
     {
-        
+        InGameUIManager.instance.ui_Growth.gameObject.SetActive(true);
     }
 
     public void OpenAchievement()
     {
-        
+        InGameUIManager.instance.ui_Achievement.gameObject.SetActive(true);
     }
 
     public void OpenSkillInventory()
     {
-        
+        InGameUIManager.instance.ui_SkillInventory.gameObject.SetActive(true);
     }
 
-    public void OpenStore()
+    public void OpenShop()
     {
-        
+        InGameUIManager.instance.ui_Store.gameObject.SetActive(true);
     }
 
     public void OpenSetting()
     {
-        
+        InGameUIManager.instance.ui_Setting.gameObject.SetActive(true);
     }
 }

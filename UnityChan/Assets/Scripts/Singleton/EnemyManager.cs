@@ -25,7 +25,7 @@ public class EnemyManager : Singleton<EnemyManager>
         {
             yield return new WaitForSeconds(2f);
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 1; i++)
             {
                 var e = ObjectPoolManager.instance.GetEnemy(EnemyType.SLIME);
                 var ran = Random.insideUnitCircle * 10f;

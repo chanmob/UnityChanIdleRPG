@@ -22,6 +22,7 @@ public class PlayerData
     public float range; //사거리
     public float dps; //공격속도
     public float moveSpeed; //이동속도(뛰기)
+    public bool isDeath;
     public ItemData item_Weapon; //무기
     public ItemData item_Head; //방어구(머리)
     public ItemData item_Armor; //방어구(갑옷)
@@ -45,15 +46,16 @@ public class Player : MonoBehaviour
 
     private Enemy _targetEnemy;
 
+    private Action reviveAct;
+
     private float _checkDPS;
     private float _attackSpeed;
     
-    private bool _isDeath = false;
     private bool _isAttack = false;
 
     public bool IsDeath
     {
-        get { return _isDeath; }
+        get { return playerData.isDeath; }
     }
 
     // Start is called before the first frame update
@@ -67,11 +69,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        int len = _trails.Length;
-        for (int i = 0; i < len; i++)
-        {
-            _trails[i].damage = playerData.damage;
-        }
+        SetDamageOnWeapon(false);
 
         SetAttackSpeed();
     }
@@ -79,7 +77,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_isDeath)
+        if(IsDeath)
             return;
         
         if (_isAttack)
@@ -135,30 +133,61 @@ public class Player : MonoBehaviour
         else
             SetAnimationTrigger("Hit1");
         
-        playerData.hp -= dmg;
+        playerData.curHp -= dmg;
 
-        if (playerData.hp <= 0)
+        if (playerData.curHp <= 0)
         {
             Die(bigDmg);
             dieAct?.Invoke();
         }
     }
 
-    private void Die(bool bigDamage)
+    private void SetDamageOnWeapon(bool critical = false)
     {
-        _isDeath = true;
-        
+        int len = _trails.Length;
+        for (int i = 0; i < len; i++)
+        {
+            if (critical)
+                _trails[i].damage = playerData.damage * 2;
+            else
+                _trails[i].damage = playerData.damage;
+        }
+    }
+
+    private void Die(bool bigDamage)
+    {      
         if(bigDamage)
             SetAnimationTrigger("Die1");
         else
             SetAnimationTrigger("Die2");
         
         InGameManager.instance.SetDeathTime((int)playerData.playerType);
+        reviveAct = ResetPlayer;
+
+        playerData.isDeath = true;
+    }
+
+    private void ResetPlayer()
+    {
+        playerData.isDeath = false;
+
+        _targetEnemy = null;
+        _checkDPS = 0;
+        playerData.curHp = playerData.hp;
+        SetAnimatiorBool("Alive", false);
     }
 
     private void Attack()
     {
-        int randomAttackAnimation = Random.Range(1, 5);
+        int cri = Random.Range(1, 101);
+        if(playerData.critical >= cri)
+        {
+            SetDamageOnWeapon(true);
+            SetAnimationTrigger("Attack4");
+        }
+
+        SetDamageOnWeapon(false);
+        int randomAttackAnimation = Random.Range(1, 4);
         string animationTriggerName = "Attack" + randomAttackAnimation;
         SetAnimationTrigger(animationTriggerName);
     }
@@ -168,13 +197,12 @@ public class Player : MonoBehaviour
         Enemy targetEnemy = null;
         
         int len = EnemyManager.instance.survivedEnemy.Count;
-        float diff = 0;
         float maxDiff = float.MaxValue;
         
         for (int i = 0; i < len; i++)
         {
             Enemy e = EnemyManager.instance.survivedEnemy[i];
-            diff = (transform.position - e.transform.position).sqrMagnitude;
+            float diff = (transform.position - e.transform.position).sqrMagnitude;
             if (diff < maxDiff)
             {
                 maxDiff = diff;
@@ -261,6 +289,12 @@ public class Player : MonoBehaviour
         }
 
         _isAttack = false;
+        
+        if(reviveAct != null)
+        {
+            reviveAct.Invoke();
+            reviveAct = null;
+        }
     }
 
     public void AllTrailOn()

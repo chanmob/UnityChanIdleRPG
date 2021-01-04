@@ -125,6 +125,7 @@ public class Enemy : MonoBehaviour
         if (enemyData.hp <= 0)
         {
             Die();
+            InGameManager.instance.AddExpToUserData(1);
             dieAct?.Invoke();
         }
     }

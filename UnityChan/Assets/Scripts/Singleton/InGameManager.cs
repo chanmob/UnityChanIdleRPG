@@ -12,14 +12,13 @@ public class InGameManager : Singleton<InGameManager>
     
     public CinemachineVirtualCamera curCam;
 
-    private float[] _playerDeathTime = new float[3];
+    public float[] _playerDeathTime = new float[3];
 
-    private float _playTime;
+    public float _playTime;
     
     private UserData _userData;
 
-    public Player CurPlayer
-    {
+    public Player CurPlayer {
         get;
         private set;
     }
@@ -60,26 +59,32 @@ public class InGameManager : Singleton<InGameManager>
     {
         _playTime += Time.deltaTime;
 
-        if (PlayerManager.instance.players[0].IsDeath && _playerDeathTime[0] >= _playTime)
+        if (PlayerManager.instance.players[0].IsDeath && _playerDeathTime[0] < _playTime)
         {
             PlayerManager.instance.players[0].Revive();
         }
         
-        if (PlayerManager.instance.players[1].IsDeath && _playerDeathTime[1] >= _playTime)
+        if (PlayerManager.instance.players[1].IsDeath && _playerDeathTime[1] < _playTime)
         {
             PlayerManager.instance.players[1].Revive();
         }
         
-        if (PlayerManager.instance.players[2].IsDeath && _playerDeathTime[2] >= _playTime)
+        if (PlayerManager.instance.players[2].IsDeath && _playerDeathTime[2] < _playTime)
         {
             PlayerManager.instance.players[2].Revive();
         }
 
         InGameUIManager.instance.ui_InGameMainUI.slider_HP.value = CurPlayer.playerData.curHp / (float)CurPlayer.playerData.hp;
+
+        InGameUIManager.instance.ui_InGameMainUI.text_Coin.text = _userData.coin.ToString();
+        InGameUIManager.instance.ui_InGameMainUI.text_Gem.text = _userData.gem.ToString();
+    }
+
+    public void AddExpToUserData(int getExp)
+    {
+        _userData.AddExp(getExp);
         float exp = _userData.curExp / (float)_userData.needExp;
         InGameUIManager.instance.ui_InGameMainUI.slider_Exp.value = exp;
         InGameUIManager.instance.ui_InGameMainUI.text_Exp.text = (exp * 100).ToString("0.00") + "%";
-        InGameUIManager.instance.ui_InGameMainUI.text_Coin.text = _userData.coin.ToString();
-        InGameUIManager.instance.ui_InGameMainUI.text_Gem.text = _userData.gem.ToString();
     }
 }
