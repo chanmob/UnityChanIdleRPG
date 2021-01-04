@@ -430,7 +430,7 @@ MonoBehaviour:
   enemyType: 0
   enemyData:
     hp: 100
-    damage: 0
+    damage: 10
     defense: 0
     armorPenetration: 0
     chaseRange: 3

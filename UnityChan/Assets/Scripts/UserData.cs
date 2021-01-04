@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UserData : MonoBehaviour
+public class UserData
 {
     public int coin;
     public int gem;

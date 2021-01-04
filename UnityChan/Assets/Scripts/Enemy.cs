@@ -1,7 +1,7 @@
-﻿using System;using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using UnityEngine.AI;
 using Random = System.Random;
 
@@ -185,6 +185,7 @@ public class Enemy : MonoBehaviour
         string animationAniamtioName = "Attack" + randomAttackAnimation;
 
         SetAnimationTrigger(animationAniamtioName);
+        _targetPlayer.GetDamage(enemyData.damage);
     }
 
     private void SetAnimatiorBool(string animationName, bool value)
