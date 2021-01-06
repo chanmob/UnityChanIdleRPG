@@ -21,11 +21,22 @@ public class ItemData : ScriptableObject
         HEAD,
         WEAPON,
         ARMOR,
-        SHOES
+        SHOES,
+        NONE
+    }
+
+    public enum WeaponType
+    {
+        DUALSWORD,
+        POLEARM,
+        GREATSWORD,
+        NONE
     }
 
     public Tier tier = Tier.NONE;
-    
+    public Part part = Part.NONE;
+    public WeaponType weaponType = WeaponType.NONE;
+
     public Sprite itemSprite;
     
     public string itemName;
@@ -37,4 +48,26 @@ public class ItemData : ScriptableObject
     public int addDps;
     public int addArmorPenetration;
     public int addHpRegeneration;
+
+    public void ItemOn(PlayerData playerData)
+    {
+        playerData.hp += addHp;
+        playerData.hpRegeneration += addHpRegeneration;
+        playerData.damage += addDamage;
+        playerData.defense += addDefense;
+        playerData.critical += addCritical;
+        playerData.dps += addDps;
+        playerData.armorPenetration += addArmorPenetration;
+    }
+
+    public void ItemOff(PlayerData playerData)
+    {
+        playerData.hp -= addHp;
+        playerData.hpRegeneration -= addHpRegeneration;
+        playerData.damage -= addDamage;
+        playerData.defense -= addDefense;
+        playerData.critical -= addCritical;
+        playerData.dps -= addDps;
+        playerData.armorPenetration -= addArmorPenetration;
+    }
 }

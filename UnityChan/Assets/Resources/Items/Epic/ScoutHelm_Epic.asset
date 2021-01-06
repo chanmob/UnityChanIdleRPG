@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a85a9c412008e844a31e4453cf5096f, type: 3}
+  m_Name: ScoutHelm_Epic
+  m_EditorClassIdentifier: 
+  tier: 2
+  part: 0
+  weaponType: 3
+  itemSprite: {fileID: 21300000, guid: 34b7b6c2b9c6e75489688a8e23fda502, type: 3}
+  itemName: "\uC2A4\uCE74\uC6C3 \uD5EC\uBA67"
+  addDamage: 0
+  addDefense: 0
+  addHp: 0
+  addCritical: 0
+  addDps: 0
+  addArmorPenetration: 0
+  addHpRegeneration: 0

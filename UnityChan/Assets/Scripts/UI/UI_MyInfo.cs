@@ -72,35 +72,72 @@ public class UI_MyInfo : MonoBehaviour
 
         if (playerData.item_Weapon != null)
         {
+            _image_Weapon.enabled = true;
             _image_Weapon.sprite = playerData.item_Weapon.itemSprite;
+        }
+        else
+        {
+            _image_Weapon.enabled = false;
         }
         
         if (playerData.item_Head != null)
         {
+            _image_Head.enabled = true;
             _image_Head.sprite = playerData.item_Head.itemSprite;
         }
-        
+        else
+        {
+            _image_Head.enabled = false;
+        }
+
         if (playerData.item_Armor != null)
         {
+            _image_Armor.enabled = true;
             _image_Armor.sprite = playerData.item_Armor.itemSprite;
         }
-        
+        else
+        {
+            _image_Armor.enabled = false;
+        }
+
         if (playerData.item_Boots != null)
         {
+            _image_Boots.enabled = true;
             _image_Boots.sprite = playerData.item_Boots.itemSprite;
         }
-        
+        else
+        {
+            _image_Boots.enabled = false;
+        }
+
         if (playerData.skill_first != null)
         {
+            _image_Skill1.enabled = true;
             _image_Skill1.sprite = playerData.skill_first.skillSprite;
         }
+        else
+        {
+            _image_Skill1.enabled = false;
+        }
+
         if (playerData.skill_second != null)
         {
+            _image_Skill2.enabled = true;
             _image_Skill2.sprite = playerData.skill_second.skillSprite;
         }
+        else
+        {
+            _image_Skill2.enabled = false;
+        }
+
         if (playerData.skill_third != null)
         {
+            _image_Skill3.enabled = true;
             _image_Skill3.sprite = playerData.skill_third.skillSprite;
+        }
+        else
+        {
+            _image_Skill3.enabled = false;
         }
     }
 

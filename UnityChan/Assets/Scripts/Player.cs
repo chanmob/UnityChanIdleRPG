@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(IsDeath)
+        if (IsDeath)
             return;
         
         if (_isAttack)
@@ -139,6 +139,49 @@ public class Player : MonoBehaviour
         {
             Die(bigDmg);
             dieAct?.Invoke();
+        }
+    }
+
+    public void SetItem(ItemData item)
+    {
+        switch (item.part)
+        {
+            case ItemData.Part.HEAD:
+                if(playerData.item_Head != null)
+                {
+                    playerData.item_Head.ItemOff(playerData);
+                }
+
+                item.ItemOn(playerData);
+                playerData.item_Head = item;
+                break;
+            case ItemData.Part.ARMOR:
+                if (playerData.item_Armor != null)
+                {
+                    playerData.item_Armor.ItemOff(playerData);
+                }
+
+                item.ItemOn(playerData);
+                playerData.item_Armor = item;
+                break;
+            case ItemData.Part.SHOES:
+                if (playerData.item_Boots != null)
+                {
+                    playerData.item_Boots.ItemOff(playerData);
+                }
+
+                item.ItemOn(playerData);
+                playerData.item_Boots = item;
+                break;
+            case ItemData.Part.WEAPON:
+                if (playerData.item_Weapon != null)
+                {
+                    playerData.item_Weapon.ItemOff(playerData);
+                }
+
+                item.ItemOn(playerData);
+                playerData.item_Weapon = item;
+                break;
         }
     }
 
