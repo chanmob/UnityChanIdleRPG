@@ -14540,7 +14540,7 @@ PrefabInstance:
     - target: {fileID: 199773197783368204, guid: 4adffb0018aeda44e9263f901167af1f,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4adffb0018aeda44e9263f901167af1f, type: 3}
@@ -17631,7 +17631,7 @@ RectTransform:
   m_GameObject: {fileID: 1265202788}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.3940148, y: 2.3940148, z: 2.3940148}
   m_Children:
   - {fileID: 416151825}
   m_Father: {fileID: 2031166684}
@@ -27303,7 +27303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2031166684
 RectTransform:
   m_ObjectHideFlags: 0

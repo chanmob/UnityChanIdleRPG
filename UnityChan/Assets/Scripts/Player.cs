@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using System;
 using Random = UnityEngine.Random;
+using System.IO;
 
 public enum PlayerType { DUALSWORD, POLEARM, GREATSWORD, NONE }
 
@@ -69,6 +70,11 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        if(File.Exists(Application.dataPath + "/Resources/Datas/Player/" + playerData.playerType.ToString() + ".json"))
+        {
+            LoadPlayerData();
+        }
+
         SetDamageOnWeapon(false);
 
         SetAttackSpeed();
@@ -77,6 +83,13 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            var a=  ItemDataManager.instance.GetRandomEpicItem();
+            a.ItemOn(playerData);
+            SetItem(a);
+        }
+
         if (IsDeath)
             return;
         
@@ -117,6 +130,22 @@ public class Player : MonoBehaviour
                 } 
             }
         }
+    }
+
+    public void LoadPlayerData()
+    {
+        string path = Application.dataPath + "/Resources/Datas/Player/" + playerData.playerType.ToString() + ".json";
+        string jsonData = File.ReadAllText(path);
+        playerData = JsonUtility.FromJson<PlayerData>(jsonData);
+    }
+
+    public void SavePlayerData()
+    {
+        string jsonData = JsonUtility.ToJson(playerData);
+        //string fileName = playerData.playerType.ToString() + ".json";
+
+        string path = Application.dataPath + "/Resources/Datas/Player/" + playerData.playerType.ToString() + ".json";
+        File.WriteAllText(path, jsonData);
     }
 
     public void Revive()

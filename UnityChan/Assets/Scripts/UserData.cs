@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class UserData
 {
@@ -31,5 +32,19 @@ public class UserData
     public void AddGem(int getGem)
     {
         gem += getGem;
+    }
+
+    public void SaveData()
+    {
+        int len = PlayerManager.instance.players.Length;
+
+        for(int i = 0; i < len; i++)
+        {
+            PlayerManager.instance.players[i].SavePlayerData();
+        }
+
+        string jsonData = JsonUtility.ToJson(this);
+        string path = Application.dataPath + "/Resources/Datas/UserData.json";
+        File.WriteAllText(path, jsonData);
     }
 }

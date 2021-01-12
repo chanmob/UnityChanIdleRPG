@@ -57,6 +57,11 @@ public class InGameManager : Singleton<InGameManager>
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            _userData.SaveData();
+        }
+
         _playTime += Time.deltaTime;
 
         if (PlayerManager.instance.players[0].IsDeath && _playerDeathTime[0] < _playTime)
